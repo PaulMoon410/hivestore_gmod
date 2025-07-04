@@ -1,0 +1,21 @@
+{
+	"title": "Hive Store - PeakeCoin Integration",
+	"type": "gamemode",
+	"tags": [
+		"roleplay",
+		"fun",
+		"economy",
+		"hive",
+		"peakecoin",
+		"store"
+	],
+	"ignore": [
+		"*.psd",
+		"*.vcproj",
+		"*.svn*",
+		"*.xcf",
+		"node_modules/*",
+		".git/*",
+		"*.md"
+	]
+}

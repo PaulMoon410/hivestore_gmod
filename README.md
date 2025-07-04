@@ -1,2 +1,48 @@
-# hivestore_gmod
-Creating a PeakeCoin Store inside of GMOD... This is just the rough draft concept. 
+# Hive Store - PeakeCoin Integration
+
+A comprehensive store system for Garry's Mod that integrates with the Hive blockchain and uses PeakeCoin as the primary currency.
+
+## Features
+
+- **PeakeCoin Integration**: Use PEK tokens for all transactions
+- **Hive Blockchain**: Secure transactions on the Hive network
+- **Item Store**: Buy and sell weapons, tools, and cosmetics
+- **User Wallets**: Track PeakeCoin balances
+- **Admin Panel**: Manage store items and prices
+- **Transaction History**: View all purchases and sales
+
+## Installation
+
+1. Copy the HiveStore folder to your Garry's Mod addons directory
+2. Restart your server or use the console command: `lua_run_cl dofile("addons/HiveStore/lua/autorun/hive_store_init.lua")`
+
+## Usage
+
+- Press F4 to open the Hive Store
+- Use !wallet to check your PeakeCoin balance
+- Use !store to open the store interface
+- Admins can use !storeadmin to manage the store
+
+## Configuration
+
+Edit `lua/hive_store/config.lua` to customize:
+- Store items and prices
+- PeakeCoin exchange rates
+- Admin permissions
+- Store appearance
+
+## Commands
+
+### Player Commands
+- `!store` - Open the store
+- `!wallet` - Check PeakeCoin balance
+- `!balance` - Same as !wallet
+- `!buy <item>` - Quick buy an item
+- `!sell <item>` - Quick sell an item
+
+### Admin Commands
+- `!storeadmin` - Open admin panel
+- `!additem <name> <price> <category>` - Add new store item
+- `!removeitem <name>` - Remove store item
+- `!setprice <item> <price>` - Update item price
+- `!givepek <player> <amount>` - Give PeakeCoin to player
