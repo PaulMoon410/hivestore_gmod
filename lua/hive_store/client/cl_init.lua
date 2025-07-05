@@ -8,6 +8,8 @@ HiveStore.Client = {}
 HiveStore.Client.Balance = 0
 HiveStore.Client.StoreOpen = false
 HiveStore.Client.AdminPanelOpen = false
+HiveStore.Client.SpecializedStoreOpen = false
+HiveStore.Client.CurrentShopkeeper = nil
 
 -- Initialize client components
 function HiveStore.Client.Initialize()
@@ -138,6 +140,160 @@ function HiveStore.Client.CloseAdminPanel()
     
     if IsValid(HiveStore.GUI.AdminFrame) then
         HiveStore.GUI.AdminFrame:Close()
+    end
+end
+
+-- Open specialized store for specific NPCs
+function HiveStore.Client.OpenSpecializedStore(shopType, npcName)
+    if HiveStore.Client.SpecializedStoreOpen then
+        HiveStore.Client.CloseSpecializedStore()
+    end
+    
+    HiveStore.Client.SpecializedStoreOpen = true
+    HiveStore.Client.CurrentShopkeeper = npcName
+    
+    -- Filter items based on shop type
+    local filteredItems = {}
+    if shopType == "weapons_tools" then
+        for _, item in pairs(HiveStore.Items or {}) do
+            if item.category == "Weapons" or item.category == "Tools" then
+                table.insert(filteredItems, item)
+            end
+        end
+    else
+        filteredItems = HiveStore.Items or {}
+    end
+    
+    -- Create specialized store GUI
+    HiveStore.Client.CreateSpecializedGUI(filteredItems, npcName)
+    
+    -- Play opening sound
+    surface.PlaySound("ui/buttonclick.wav")
+end
+
+-- Close specialized store
+function HiveStore.Client.CloseSpecializedStore()
+    if IsValid(HiveStore.GUI.SpecializedFrame) then
+        HiveStore.GUI.SpecializedFrame:Remove()
+    end
+    
+    HiveStore.Client.SpecializedStoreOpen = false
+    HiveStore.Client.CurrentShopkeeper = nil
+    
+    surface.PlaySound("ui/buttonclickrelease.wav")
+end
+
+-- Create specialized store GUI
+function HiveStore.Client.CreateSpecializedGUI(items, npcName)
+    HiveStore.GUI = HiveStore.GUI or {}
+    
+    -- Create main frame
+    local frame = vgui.Create("DFrame")
+    frame:SetSize(800, 600)
+    frame:Center()
+    frame:SetTitle(npcName .. "'s Shop - " .. #items .. " items")
+    frame:SetVisible(true)
+    frame:SetDraggable(true)
+    frame:ShowCloseButton(true)
+    frame:MakePopup()
+    
+    -- Store frame reference
+    HiveStore.GUI.SpecializedFrame = frame
+    
+    -- Close function
+    frame.OnClose = function()
+        HiveStore.Client.CloseSpecializedStore()
+    end
+    
+    -- Background color
+    frame.Paint = function(self, w, h)
+        draw.RoundedBox(0, 0, 0, w, h, Color(40, 40, 40, 240))
+        draw.RoundedBox(0, 0, 0, w, 25, Color(60, 60, 60, 255))
+    end
+    
+    -- Balance display
+    local balanceLabel = vgui.Create("DLabel", frame)
+    balanceLabel:SetPos(10, 30)
+    balanceLabel:SetSize(200, 25)
+    balanceLabel:SetText("Balance: " .. (HiveStore.Client.Balance or 0) .. " PEK")
+    balanceLabel:SetTextColor(Color(100, 255, 100))
+    
+    -- Shopkeeper info
+    local shopkeeperInfo = vgui.Create("DLabel", frame)
+    shopkeeperInfo:SetPos(10, 55)
+    shopkeeperInfo:SetSize(400, 25)
+    shopkeeperInfo:SetText("Talking to: " .. npcName)
+    shopkeeperInfo:SetTextColor(Color(255, 255, 100))
+    
+    -- Items scroll panel
+    local scroll = vgui.Create("DScrollPanel", frame)
+    scroll:SetPos(10, 85)
+    scroll:SetSize(780, 470)
+    
+    -- Items layout
+    local layout = vgui.Create("DIconLayout", scroll)
+    layout:SetSize(780, 470)
+    layout:SetSpaceY(5)
+    layout:SetSpaceX(5)
+    
+    -- Add items to the layout
+    for _, item in pairs(items) do
+        local itemPanel = vgui.Create("DPanel")
+        itemPanel:SetSize(760, 80)
+        
+        itemPanel.Paint = function(self, w, h)
+            local bgColor = Color(50, 50, 50, 200)
+            if self:IsHovered() then
+                bgColor = Color(70, 70, 70, 220)
+            end
+            draw.RoundedBox(4, 0, 0, w, h, bgColor)
+            
+            -- Item border
+            draw.RoundedBox(4, 1, 1, w-2, h-2, Color(80, 80, 80, 100))
+        end
+        
+        -- Item name
+        local nameLabel = vgui.Create("DLabel", itemPanel)
+        nameLabel:SetPos(10, 5)
+        nameLabel:SetSize(300, 25)
+        nameLabel:SetText(item.name)
+        nameLabel:SetFont("DermaDefaultBold")
+        nameLabel:SetTextColor(Color(255, 255, 255))
+        
+        -- Item description
+        local descLabel = vgui.Create("DLabel", itemPanel)
+        descLabel:SetPos(10, 25)
+        descLabel:SetSize(400, 20)
+        descLabel:SetText(item.description or "No description")
+        descLabel:SetTextColor(Color(200, 200, 200))
+        
+        -- Item price
+        local priceLabel = vgui.Create("DLabel", itemPanel)
+        priceLabel:SetPos(10, 45)
+        priceLabel:SetSize(200, 20)
+        priceLabel:SetText("Price: " .. (item.price or 0) .. " PEK")
+        priceLabel:SetTextColor(Color(100, 255, 100))
+        
+        -- Buy button
+        local buyButton = vgui.Create("DButton", itemPanel)
+        buyButton:SetPos(650, 25)
+        buyButton:SetSize(100, 30)
+        buyButton:SetText("Buy")
+        buyButton.DoClick = function()
+            HiveStore.Client.PurchaseItem(item.id)
+            surface.PlaySound("ui/buttonclick.wav")
+        end
+        
+        layout:Add(itemPanel)
+    end
+    
+    -- Refresh button
+    local refreshButton = vgui.Create("DButton", frame)
+    refreshButton:SetPos(650, 30)
+    refreshButton:SetSize(140, 25)
+    refreshButton:SetText("Refresh Balance")
+    refreshButton.DoClick = function()
+        HiveStore.Client.RefreshBalance()
     end
 end
 

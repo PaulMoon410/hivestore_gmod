@@ -1,6 +1,17 @@
 # Hive Store - PeakeCoin Integration
 
-A comprehensive store system for Garry's Mod that integrates with the Hive blockchain and uses PeakeCoin as the primary currency.
+A com### Admin Commands
+- `!storeadmin` - Open admin panel
+- `!additem <n> <price> <category>` - Add new store item
+- `!removeitem <n>` - Remove store item
+- `!setprice <item> <price>` - Update item price
+- `!givepek <player> <amount>` - Give PeakeCoin to player
+
+### NPC Commands (Console)
+- `hivestore_spawn_elder` - Spawn Elder Brother (Jeb McCoy)
+- `hivestore_spawn_younger` - Spawn Younger Brother (Cletus McCoy)
+- `hivestore_spawn_both` - Spawn Both Brothers
+- `hivestore_remove_npcs` - Remove All NPCssive store system for Garry's Mod that integrates with the Hive blockchain and uses PeakeCoin as the primary currency.
 
 ## Features
 
@@ -10,6 +21,9 @@ A comprehensive store system for Garry's Mod that integrates with the Hive block
 - **User Wallets**: Track PeakeCoin balances
 - **Admin Panel**: Manage store items and prices
 - **Transaction History**: View all purchases and sales
+- **Hillbilly Shopkeeper NPCs**: Interactive McCoy Brothers who run the trading post
+  - **Jeb McCoy (Elder Brother)**: Main shopkeeper with access to all items
+  - **Cletus McCoy (Younger Brother)**: Weapons & tools specialist
 
 ## Installation
 

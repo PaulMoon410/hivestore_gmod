@@ -1,0 +1,24 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "models/hivestore/elder_brother_diffuse"
+	"$bumpmap" "models/player/shared/shared_normal"
+	
+	"$phong" "1"
+	"$phongexponent" "20"
+	"$phongboost" "0.3"
+	"$phongfresnelranges" "[0.25 0.5 1.0]"
+	
+	"$rimlight" "1"
+	"$rimlightexponent" "4"
+	"$rimlightboost" "2"
+	
+	"$cloakPassEnabled" "1"
+	"$sheenPassEnabled" "1"
+	
+	"$sheenmap" "cubemaps/cubemap_sheen001"
+	"$sheenmapmask" "Effects/AnimatedSheen/animatedsheen0"
+	"$sheenmaptint" "[1 1 1]"
+	"$sheenPassEnabled" "1"
+	
+	"$yellow" "0"
+}
