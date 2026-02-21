@@ -16,7 +16,12 @@ HiveStore.Config.PeakeCoin = {
     TokenSymbol = "PEK",
     SwapSymbol = "SWAP.HIVE",
     DefaultBalance = 100, -- Starting PeakeCoin for new players
-    RefreshInterval = 30 -- Seconds between balance updates
+    RefreshInterval = 30, -- Seconds between balance updates
+    
+    -- Future Hive Keychain Integration
+    EnableHiveKeychain = false, -- Set to true when keychain integration is ready
+    RequireSignedTransactions = false, -- Set to true for real blockchain transactions
+    KeychainTimeout = 30 -- Seconds to wait for keychain response
 }
 
 -- Store Settings
@@ -70,4 +75,21 @@ HiveStore.Config.Sounds = {
 HiveStore.Config.Network = {
     MaxRequestsPerMinute = 10, -- Rate limiting per player
     RequestTimeout = 30 -- Seconds before timing out requests
+}
+
+-- NPC Settings
+HiveStore.Config.NPCs = {
+    AutoSpawnOnRestart = true, -- Auto-respawn NPCs after map restart
+    PermanentNPCs = true, -- Make NPCs unkillable and permanent
+    SavePositions = true, -- Save NPC positions between restarts
+    HealthCheckInterval = 30, -- Seconds between NPC health checks
+    ProtectFromTools = true, -- Prevent removal tool usage on NPCs
+    ProtectFromPhysgun = true, -- Prevent physgun manipulation
+    
+    -- Building Settings
+    UseDupeBuilding = false, -- Use custom built cabin instead of dupe
+    UseCustomCabin = true, -- Use custom hillbilly cabin made from props
+    DupeFileName = "CHANGE_ME.dupe", -- CHANGE THIS to your actual dupe filename
+    DupeCreator = "Fried Water", -- Original creator credit
+    DupeURL = "https://steamcommunity.com/id/hydena/myworkshopfiles/?appid=4000" -- Creator's workshop
 }

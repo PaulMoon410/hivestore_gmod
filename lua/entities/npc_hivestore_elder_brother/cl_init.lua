@@ -19,7 +19,7 @@ function ENT:Draw()
     ang:RotateAroundAxis(ang:Right(), 90)
     
     cam.Start3D2D(pos, ang, 0.1)
-        draw.SimpleTextOutlined(self.NPCName or "Jeb McCoy", "DermaLarge", 0, 0, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 2, Color(0, 0, 0))
+        draw.SimpleTextOutlined(self.NPCName or "E.R. Loona", "DermaLarge", 0, 0, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 2, Color(0, 0, 0))
         draw.SimpleTextOutlined("Elder Brother - General Store", "DermaDefault", 0, 30, Color(200, 200, 200), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(0, 0, 0))
         draw.SimpleTextOutlined("Press E to Trade", "DermaDefault", 0, 50, Color(100, 255, 100), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(0, 0, 0))
     cam.End3D2D()

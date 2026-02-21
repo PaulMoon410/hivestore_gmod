@@ -4,7 +4,7 @@
 ENT.Base = "base_ai"
 ENT.Type = "ai"
 
-ENT.PrintName = "Cletus McCoy (Younger Brother)"
+ENT.PrintName = "Nater Loona (Younger Brother)"
 ENT.Author = "HiveStore"
 ENT.Contact = ""
 ENT.Purpose = "Weapons and tools specialist for the HiveStore system"
@@ -14,7 +14,7 @@ ENT.Spawnable = true
 ENT.AdminSpawnable = true
 ENT.Category = "HiveStore NPCs"
 
-ENT.NPCName = "Cletus 'Clete' McCoy"
+ENT.NPCName = "Nater Loona"
 ENT.NPCDescription = "Younger brother, weapons and tools specialist"
 ENT.ShopType = "weapons_tools"
 

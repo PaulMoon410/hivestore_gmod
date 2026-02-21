@@ -1,0 +1,23 @@
+"VertexLitGeneric"
+{
+    "$basetexture" "models/player/group01/male_02"
+    "$bumpmap" "models/player/shared/shared_normal"
+    
+    "$phong" "1"
+    "$phongexponent" "15"
+    "$phongboost" "0.2"
+    "$phongfresnelranges" "[0.2 0.4 0.8]"
+    
+    "$rimlight" "1"
+    "$rimlightexponent" "2"
+    "$rimlightboost" "1.2"
+    
+    // Overalls appearance - blue denim with work wear look
+    "$color2" "[0.3 0.4 0.7]"  // Blue denim color
+    "$blendtintbybasealpha" "1"
+    
+    // Make it look more worn/working
+    "$envmap" "env_cubemap"
+    "$envmaptint" "[0.8 0.8 0.9]"
+    "$envmapfresnel" "0.3"
+}

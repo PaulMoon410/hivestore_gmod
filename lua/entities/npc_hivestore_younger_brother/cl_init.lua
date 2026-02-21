@@ -26,7 +26,7 @@ function ENT:Draw()
     pos = pos + Vector(0, 0, bounce)
     
     cam.Start3D2D(pos, ang, 0.1)
-        draw.SimpleTextOutlined(self.NPCName or "Cletus McCoy", "DermaLarge", 0, 0, Color(255, 255, 100), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 2, Color(0, 0, 0))
+        draw.SimpleTextOutlined(self.NPCName or "Nater Loona", "DermaLarge", 0, 0, Color(255, 255, 100), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 2, Color(0, 0, 0))
         draw.SimpleTextOutlined("Younger Brother - Weapons & Tools", "DermaDefault", 0, 30, Color(255, 200, 100), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(0, 0, 0))
         draw.SimpleTextOutlined("Press E for Quality Gear!", "DermaDefault", 0, 50, Color(255, 150, 50), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, Color(0, 0, 0))
     cam.End3D2D()

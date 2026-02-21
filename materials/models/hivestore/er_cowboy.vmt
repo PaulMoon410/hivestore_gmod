@@ -1,0 +1,28 @@
+"VertexLitGeneric"
+{
+    "$basetexture" "models/player/group01/male_04"
+    "$bumpmap" "models/player/shared/shared_normal"
+    
+    "$phong" "1"
+    "$phongexponent" "20"
+    "$phongboost" "0.4"
+    "$phongfresnelranges" "[0.3 0.6 1.0]"
+    
+    "$rimlight" "1"
+    "$rimlightexponent" "3"
+    "$rimlightboost" "1.8"
+    
+    // Cowboy appearance - tanned skin, rugged look
+    "$color2" "[1.2 1.0 0.8]"  // Tanned/weathered skin tone
+    "$blendtintbybasealpha" "1"
+    
+    // Add some weathering/sun exposure effects
+    "$envmap" "env_cubemap"
+    "$envmaptint" "[1.0 0.9 0.7]"
+    "$envmapfresnel" "0.4"
+    
+    // Slight roughness for outdoor work
+    "$detail" "models/player/shared/shared_normal"
+    "$detailscale" "2.0"
+    "$detailblendfactor" "0.2"
+}

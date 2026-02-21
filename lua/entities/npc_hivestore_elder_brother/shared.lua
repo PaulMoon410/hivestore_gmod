@@ -4,7 +4,7 @@
 ENT.Base = "base_ai"
 ENT.Type = "ai"
 
-ENT.PrintName = "Jeb McCoy (Elder Brother)"
+ENT.PrintName = "E.R. Loona (Elder Brother)"
 ENT.Author = "HiveStore"
 ENT.Contact = ""
 ENT.Purpose = "Main shopkeeper for the HiveStore system"
@@ -14,7 +14,7 @@ ENT.Spawnable = true
 ENT.AdminSpawnable = true
 ENT.Category = "HiveStore NPCs"
 
-ENT.NPCName = "Jebediah 'Jeb' McCoy"
+ENT.NPCName = "E.R. Loona"
 ENT.NPCDescription = "Elder brother and main shopkeeper"
 ENT.ShopType = "general"
 
